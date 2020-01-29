@@ -1,0 +1,172 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  padding: 0;
+  border: 0;
+  height: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  monospace;
+}
+
+.title {
+  color: #c0a26d;
+}
+
+.am-list-item {
+  position: relative;
+  display: flex;
+  padding-left: 15px;
+  min-height: 44px;
+  background-color: #2b2c2b !important;
+  vertical-align: middle;
+  overflow: hidden;
+  transition: background-color 200ms;
+  align-items: center;
+}
+
+
+.am-button {
+  padding: 0px 5px !important;
+  font-size: 14px !important;
+  height: 30px !important;
+  line-height: 30px !important;
+  color: #f7f7f7 !important;
+  background-color: #313131 !important;
+  border: 1PX solid rgb(97, 97, 97) !important;
+  border-radius: 5px !important;
+}
+
+.column-title {
+  color: #fff;
+  font-size:14px
+}
+
+.column-value {
+  color: #fff;
+  font-size:14px
+}
+
+.am-list-body {
+  position: unset !important;
+  border-top: unset !important;
+  border-bottom: unset !important;
+  background-color: unset !important;
+  /*border: 1px solid #bba055;*/
+  /*border-radius: 5px;*/
+}
+
+.am-list-body div:not(:last-child) .am-list-line {
+  border-bottom: unset !important;
+}
+
+.am-list-line::after {
+  transform: scaleY(0) !important;
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+}
+
+*, *:before, *:after {
+  -webkit-tap-highlight-color: unset !important;
+}
+
+div{
+  color: #fff
+}
+
+div span{
+  color: #fff;
+}
+
+.fake-input{
+  color: #fff !important;
+}
+
+input{
+  color: #fff !important;
+}
+
+.am-modal-mask{
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.am-modal-content{
+  background-color: #434343 !important;
+}
+
+#root{
+  max-width: 600px;
+  background: #232323;
+}
+
+.clock{
+  font-size: 28px;
+  font-weight: 800;
+  position: relative;
+  top: -61px;
+}
+
+.am-modal-button-group-h .am-modal-button:last-child {
+  border-left:unset !important;
+}
+
+.am-list-item:not(:last-child) .am-list-line {
+  border-bottom:unset !important;
+}
+
+.item-header{
+  position: relative;
+  display: flex;
+  padding-left: 15px;
+  padding-right: 15px;
+  min-height: 44px;
+  background-color: rgb(105,105,105);
+  vertical-align: middle;
+  overflow: hidden;
+  transition: background-color 200ms;
+  align-items: center;
+}
+
+.footer p{
+  text-align: center;
+  padding: 15px;
+  color: #ddd;
+}
+
+.am-list-body::after {
+  transform: scaleY(0) !important;
+}
+.am-list-body::before {
+  transform: scaleY(0) !important;
+}
+
+.contractRule{
+  text-align: left;
+  overflow-wrap: break-word;
+  font-size: 12px;
+  color: #f7f7f7;
+  overflow-y:scroll;
+}
+
+.am-modal-transparent {
+  width: 90% !important;
+}
+
+.am-list-item .am-list-line .am-list-content{
+  white-space:unset !important;
+}
+
+.am-modal.am-modal-operation .am-modal-content {
+  max-height: 400px;
+  overflow-y: scroll;
+}
