@@ -320,8 +320,8 @@ class Ubs extends Component {
             )
         });
 
-        // let exp = new Date().getTime() + 86400000 - (new Date().getHours() * 60 * 60 + new Date().getMinutes() * 60 + new Date().getSeconds()) * 1000 - new Date().getTimezoneOffset() * 60 * 1000;
-        let exp = new Date().getTime() - new Date().getTime() % (10 * 60 * 1000) + (10 * 60 * 1000);
+        let exp = new Date().getTime() + 86400000 - (new Date().getHours() * 60 * 60 + new Date().getMinutes() * 60 + new Date().getSeconds()) * 1000 - new Date().getTimezoneOffset() * 60 * 1000;
+        // let exp = new Date().getTime() - new Date().getTime() % (10 * 60 * 1000) + (10 * 60 * 1000);
         return (
             <div style={{maxWidth: '600px', backgroundColor: '#080810'}}>
                 <div style={{position: "absolute", top: "0", width: "100%", maxWidth: "600px"}}>

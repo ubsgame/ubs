@@ -5,7 +5,7 @@ import {Toast} from 'antd-mobile'
 
 const config = {
     name: "UBS",
-    contractAddress: "4mATB73RF9SivdeimtJfBbNJVA8ZsJvikFsvvthwwC7KpuzcGDp31JWfppd6oX9bJvMqrfQhF5D2bfHegxUuPWiH",
+    contractAddress: "2AATYV1et8YawiuQBdaytY63yZzvAKF7QoHdjW96VS1eXQDhWgdeHnhmQ5zYDLdgEc2FR8ZnBrGNsP135EcPu9iY",
     github: "https://github.com/ubsgame/ubs",
     author: "ubsgame",
     url: document.location.href,

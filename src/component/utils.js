@@ -37,8 +37,8 @@ export function decimals(val, decimal, decimalPlaces) {
 }
 
 export function sameDay(time1, time2) {
-    // return parseInt(time1 / 24 / 3600) === parseInt(time2 / 24 / 3600)
-    return parseInt(time1 / 600) === parseInt(time2 / 600)
+    return parseInt(time1 / 24 / 3600) === parseInt(time2 / 24 / 3600)
+    // return parseInt(time1 / 600) === parseInt(time2 / 600)
 }
 
 export function showPK(name, pk, len) {
