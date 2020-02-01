@@ -498,7 +498,7 @@ class Ubs extends Component {
                                 </div>
                                 <div style={{float: 'right'}}>
                                     <Button
-                                        disabled={this.state.details.canWithdraw < 1e+20 || (this.state.info.closureTime != 0 && this.state.info.closureTime < Math.ceil(new Date().getTime() / 1000))}
+                                        disabled={this.state.details.canWithdraw < 1e+19 || (this.state.info.closureTime != 0 && this.state.info.closureTime < Math.ceil(new Date().getTime() / 1000))}
                                         onClick={() => {
                                             this.reinvest()
                                         }}>{language.e().account.reinvest}</Button>

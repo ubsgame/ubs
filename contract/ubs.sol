@@ -199,6 +199,8 @@ library Utils {
 
     function sameDay(uint day1, uint day2) internal pure returns (bool){
         return day1 / 24 / 3600 == day2 / 24 / 3600;
+        // return day1 / 600 == day2 / 600;
+        
     }
 
     function min(uint256 a, uint256 b) internal pure returns (uint256) {
@@ -613,19 +615,21 @@ contract UBS is Ownable, SeroInterface {
         self.totalAynamicReward = self.totalAynamicReward.add(value);
     }
 
-    function calceReward(Investor storage self) internal returns (uint256 amount) {
+    function calceReward(Investor storage self) internal returns (uint256 , uint256) {
         (bool flag, uint256 reward) = payStaticReward(self, self.value.sub(self.returnValue));
         if(flag) {
             return;
         }
-        amount = amount.add(reward);
+        uint256 amount = reward;
+        
         if (self.parentId > 0) {
             uint256 value;
             Investor storage current = investors[self.parentId];
             (flag, value) = payDynamicReward(current, reward, 0);
             if(flag) {
-                return;
+                return (reward, amount);
             }
+            
             amount = amount.add(value);
 
             uint256 height = 1;
@@ -634,13 +638,15 @@ contract UBS is Ownable, SeroInterface {
                 if (current.values[0].div(1e22) > height && current.returnValue < current.value) {
                     (flag, value) = payDynamicReward(current, reward, height);
                     if(flag) {
-                        return;
+                       return (reward, amount);
                     }
                     amount = amount.add(value);
                 }
                 height++;
             }
         }
+        
+        return (reward, amount);
     }
 
     function triggerStaticProfit() public {
@@ -654,15 +660,19 @@ contract UBS is Ownable, SeroInterface {
             return;
         }
 
+
+        uint256 allShare;
         uint256 allProfit;
         for (uint256 i = id; i < Utils.min(investors.length, id + triggerStaticNum) && closureTime == 0; i++) {
             Investor storage self = investors[i];
             if(!Utils.sameDay(self.staticTimestamp, now) && self.value > self.returnValue) {
-                allProfit = allProfit.add(calceReward(self));
+                (uint256 share, uint256 profit) = calceReward(self);
+                allShare = allShare.add(share);
+                allProfit = allProfit.add(profit);
             }
         }
         cash = cash.add(allProfit);
-        totalShare = totalShare.sub(allProfit);
+        totalShare = totalShare.sub(allShare);
     }
 
     function withdraw() public {
