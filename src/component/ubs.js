@@ -139,8 +139,8 @@ class Ubs extends Component {
     }
 
     takePartIn() {
-        // let defCode = "ZFX5W3MTNWZHH";
-        let defCode = "IFVUSKIRFSIDF";
+        let defCode = "ZFX5W3MTNWZHH";
+        // let defCode = "IFVUSKIRFSIDF";
         if (this.state.details.parentCode !== "") {
             defCode = this.state.details.parentCode;
         }
