@@ -125,7 +125,7 @@ class Ubs extends Component {
                     this.reinvestInput = el
                 }} placeholder=">=10"><span>{language.e().account.modal.value}:</span></InputItem>
             </div>
-            Modal.alert(<span>{language.e().account.withdraw}</span>, inputs, [
+            Modal.alert(<span>{language.e().account.reinvest}</span>, inputs, [
                 {text: <span>{language.e().account.modal.cancel}</span>},
                 {
                     text: <span>{language.e().account.modal.submit}</span>, onPress: () => {
