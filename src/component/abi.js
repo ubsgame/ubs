@@ -268,8 +268,10 @@ class Abi {
             if (err) {
                 Toast.fail("Unknow Gas Limit")
             } else {
-                executeData["gas"] = Math.ceil(gas * 1.1);
-                console.log("executeData", executeData)
+                let gasNum = new BigNumber(gas);
+                executeData["gas"] = "0x" + new BigNumber(gasNum.multipliedBy(1.1).toFixed(0)).toString(16);
+                console.log("executeData", executeData);
+
                 seropp.executeContract(executeData, function (res) {
                     if (callback) {
                         callback(res)
