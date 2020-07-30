@@ -268,7 +268,8 @@ class Abi {
             if (err) {
                 Toast.fail("Unknow Gas Limit")
             } else {
-                executeData["gas"] = gas + gas/10;
+                executeData["gas"] = Math.ceil(gas * 1.1);
+                console.log("executeData", executeData)
                 seropp.executeContract(executeData, function (res) {
                     if (callback) {
                         callback(res)
