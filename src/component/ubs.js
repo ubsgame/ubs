@@ -7,7 +7,6 @@ import {decimals, sameDay, showPK} from "./utils";
 import copy from "copy-text-to-clipboard/index"
 import Timer from "./timer";
 import CountTimeDown from "./countTimeDown";
-import ClickNHold from "react-click-n-hold";
 
 const operation = Modal.operation;
 const tenThousand = new BigNumber("10000000000000000000000");
@@ -17,26 +16,32 @@ function alert(content) {
 }
 
 class Ubs extends Component {
+
+    state = {
+        account: {pk: "", mainPKr: "", name: "", balance: 0},
+        details: {
+            code: "",
+            parentCode: "",
+            value: 0,
+            returnValue: 0,
+            totalAynamicReward: 0,
+            canWithdraw: 0,
+            dynamicReward: 0,
+            staticReward: 0,
+            staticTimestamp: 0,
+            values: [],
+            childsCode: [],
+        },
+        info: {closureTime: 0},
+        lang: "Language",
+        yieldV2:{
+            amount:0,
+            lastTime:0
+        }
+    }
+
     constructor(props) {
         super(props);
-        this.state = {
-            account: {pk: "", mainPKr: "", name: "", balance: 0},
-            details: {
-                code: "",
-                parentCode: "",
-                value: 0,
-                returnValue: 0,
-                totalAynamicReward: 0,
-                canWithdraw: 0,
-                dynamicReward: 0,
-                staticReward: 0,
-                staticTimestamp: 0,
-                values: [],
-                childsCode: [],
-            },
-            info: {closureTime: 0},
-            lang: "Language"
-        }
     }
 
     initAccount(mainPkr) {
@@ -46,6 +51,14 @@ class Ubs extends Component {
         });
         abi.info(mainPkr, function (info) {
             self.setState({info: info});
+        })
+        abi.stateV2(mainPkr).then((rest)=>{
+            self.setState({
+                yieldV2:{
+                    amount:rest[0],
+                    lastTime:rest[1]
+                }
+            })
         })
     }
 
@@ -76,13 +89,15 @@ class Ubs extends Component {
     }
 
     trigger() {
-        let self = this;
-        if (!sameDay(parseInt(new Date().getTime() / 1000), this.state.details.staticTimestamp) && this.state.details.staticReward > 0) {
-            abi.triggerStaticProfit(this.state.account.pk, this.state.account.mainPKr);
-        }
+        // let self = this;
+        // if (!sameDay(parseInt(new Date().getTime() / 1000), this.state.details.staticTimestamp) && this.state.details.staticReward > 0) {
+        //     abi.triggerStaticProfit(this.state.account.pk, this.state.account.mainPKr);
+        // }
+        abi.triggerStaticProfit(this.state.account.pk, this.state.account.mainPKr);
     }
 
-    invest() {
+    invest=async ()=> {
+        const {account} = this.state;
         let value = this.valueInput.state.value;
         if (!value) {
             alert("please input value");
@@ -105,13 +120,13 @@ class Ubs extends Component {
         }
 
         value = new BigNumber(value).multipliedBy(new BigNumber(10).pow(18));
-        abi.invest(this.state.account.pk, this.state.account.mainPKr, value, code, function (ret) {
-        });
+        // abi.invest(account.pk, account.mainPKr, value, code, function (ret) {
+        // });
+        await abi.investV2(account.pk, account.mainPKr, value, code)
     }
 
     withdraw() {
         if (this.state.details.canWithdraw !== 0) {
-
             abi.withdraw(this.state.account.pk, this.state.account.mainPKr, function (ret) {
             });
         }
@@ -162,7 +177,10 @@ class Ubs extends Component {
                     if (this.valueInput.state.value === "..........") {
                         this.setWithdrawAddrs();
                     } else {
-                        this.invest();
+                        this.invest().catch(e=>{
+                            const err = typeof e =="string"?e:e.message;
+                            Toast.fail(err)
+                        });
                     }
                 }
             },
@@ -299,6 +317,7 @@ class Ubs extends Component {
     render() {
         let self = this;
 
+        const {yieldV2} = this.state;
         let achievement = this.state.details.values[0];
         let items = this.state.details.values.map(function (value, index) {
             let statue;
@@ -321,6 +340,7 @@ class Ubs extends Component {
         });
 
         let exp = new Date().getTime() + 86400000 - (new Date().getHours() * 60 * 60 + new Date().getMinutes() * 60 + new Date().getSeconds()) * 1000 - new Date().getTimezoneOffset() * 60 * 1000;
+        let expV2 = new BigNumber(yieldV2.lastTime).toNumber()*1000 + 86400000;
         // let exp = new Date().getTime() - new Date().getTime() % (10 * 60 * 1000) + (10 * 60 * 1000);
         return (
             <div style={{maxWidth: '600px', backgroundColor: '#080810'}}>
@@ -388,7 +408,7 @@ class Ubs extends Component {
                                 <span className="title">{language.e().account.title}</span>
                                 <Button
                                     style={{width: '87px', float: 'right'}}
-                                    disabled={sameDay(Math.ceil(new Date().getTime() / 1000), this.state.details.staticTimestamp) || this.state.details.staticReward === 0}
+                                    disabled={sameDay(Math.ceil(new Date().getTime() / 1000), this.state.details.staticTimestamp)}
                                     onClick={() => {
                                         this.trigger();
                                     }}>{
@@ -507,7 +527,31 @@ class Ubs extends Component {
                         </List.Item>
                     </List>
                 </WingBlank>
-                <WhiteSpace size="lg"/>
+
+                <WingBlank size="lg">
+                    <List renderHeader={<span className="title" style={{fontWeight:"600"}}>{language.e().account.recommend.yields.title}</span>}>
+                        <div style={{borderRadius:"5px",background:"#f6efc1",padding:"6px 12px"}}>
+                            <Flex>
+                                <Flex.Item style={{flex:2}}>
+                                    <span className="column-title" style={{fontWeight:"600",color:"#0f0c08"}}>UCON </span><span className="column-value" style={{fontWeight:"600",color:"#4f3925"}}>{decimals(yieldV2.amount,18,6)}</span>
+                                </Flex.Item>
+                                <Flex.Item style={{flex:1}}>
+                                    <Button disabled={new BigNumber(yieldV2.amount).toNumber() ===0
+                                    || Date.now()<expV2
+                                    } onClick={()=>{
+                                        abi.withdrawV2(this.state.account.pk,this.state.account.mainPKr).catch(e=>{
+                                            const err = typeof e =="string"?e:e.message;
+                                            Toast.fail(err)
+                                        })
+                                    }}>{
+                                        Date.now()<expV2 ?
+                                            <CountTimeDown endTime={expV2}/> : language.e().account.recommend.yields.harvest
+                                    }</Button>
+                                </Flex.Item>
+                            </Flex>
+                        </div>
+                    </List>
+                </WingBlank>
 
                 <WingBlank size="lg">
                     <List renderHeader={<span className="title">{language.e().account.recommend.title}</span>}>

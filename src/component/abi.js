@@ -4,12 +4,16 @@ import BigNumber from 'bignumber.js'
 import {Toast} from 'antd-mobile'
 
 const config = {
-    name: "UBS",
+    name: "UBS v1.5",
     contractAddress: "4pxhiT1cw95CZa7u82SEghwtfRVBiYBJXGrDDAzzWfCRXvMNrseStwuPC5HCXTfpgCguDgKb2ER5Kqin7gBAt1mN",
-    github: "https://github.com/ubsgame/ubs",
+    github: "https://github.com/ubsgame/ucon",
     author: "ubsgame",
     url: document.location.href,
-    logo: document.location.protocol + '//' + document.location.host + '/ubs/logo.png'
+    logo: document.location.protocol + '//' + document.location.host + document.location.pathname + '/../logo.png',
+    barColor:"#08080f",
+    navColor:"#08080f",
+    barMode:"dark",
+    navMode:"light"
 }
 
 const abi = [{
@@ -114,6 +118,11 @@ const abi = [{
 const caddress = config.contractAddress;
 const contract = serojs.callContract(abi, caddress);
 
+const caddressV2 = "2hXspewTGvuyu8AngM1cbxLnTqXpZVGBtgz9vzfE4ym5TWdt8H6xgpFH82i7FnkqeReLQGXe9Y9fFRpeoVnAq7Tr";
+const abiV2 = [{"constant":false,"inputs":[{"name":"_sender","type":"address"},{"name":"_code","type":"string"}],"name":"investProxy","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_code","type":"string"}],"name":"invest","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"_sender","type":"address"}],"name":"stateProxy","outputs":[{"name":"reward","type":"uint256"},{"name":"lastTime","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"withdraw","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"value","type":"uint256"}],"name":"setUnitSupply","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_sender","type":"address"}],"name":"solid","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_sender","type":"address"}],"name":"getInvestor","outputs":[{"components":[{"name":"id","type":"uint256"},{"name":"parentId","type":"uint256"},{"name":"value","type":"uint256"},{"name":"returnValue","type":"uint256"},{"name":"totalAynamicReward","type":"uint256"},{"name":"staticReward","type":"uint256"},{"name":"staticTimestamp","type":"uint256"},{"name":"dynamicReward","type":"uint256"},{"name":"dynamicTimestamp","type":"uint256"},{"name":"canWithdrawValue","type":"uint256"},{"name":"values","type":"uint256[]"},{"name":"childsCode","type":"string"},{"name":"withdrawAddrs","type":"address[]"}],"name":"ret","type":"tuple"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"x","type":"bytes32"}],"name":"bytes32ToString","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"pure","type":"function"},{"constant":true,"inputs":[{"name":"_sender","type":"address"}],"name":"getLastTime","outputs":[{"name":"lastTime","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_sender","type":"address"}],"name":"getMarked","outputs":[{"components":[{"name":"enable","type":"bool"},{"name":"lastEffValue","type":"uint256"},{"name":"initValue","type":"uint256"},{"name":"lastTime","type":"uint256"}],"name":"ret","type":"tuple"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_sender","type":"address"}],"name":"getCalc","outputs":[{"name":"eff","type":"uint256"},{"name":"init","type":"uint256"},{"name":"total","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"state","outputs":[{"name":"reward","type":"uint256"},{"name":"lastTime","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_data","type":"bytes"}],"name":"update","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_sender","type":"address"}],"name":"getNewValue","outputs":[{"name":"value","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[{"name":"_ubs","type":"address"},{"name":"_miner","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"previousOwner","type":"address"},{"indexed":true,"name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"}];
+const contractV2 = serojs.callContract(abiV2, caddressV2);
+
+
 class Abi {
 
     constructor() {
@@ -160,6 +169,30 @@ class Abi {
             });
             callback(accounts)
         });
+    }
+
+    stateV2 = async (mainPKr)=>{
+        return new Promise((resolve, reject) => {
+            this.callMethodV2("state",mainPKr,[],function (rest){
+                resolve(rest)
+            })
+        })
+    }
+
+    withdrawV2 = async (pk,mainPKr)=>{
+        return new Promise((resolve, reject) => {
+            this.executeMethodV2('withdraw', pk, mainPKr, [], 0, function (res){
+                resolve(res)
+            });
+        })
+    }
+
+    investV2 = async (pk,mainPKr,value,code)=>{
+        return new Promise((resolve, reject) => {
+            this.executeMethodV2('invest', pk, mainPKr, [code], value, function (res){
+                resolve(res)
+            });
+        })
     }
 
     details(mainPkr, code, callback) {
@@ -266,7 +299,65 @@ class Abi {
         }
         seropp.estimateGas(estimateParam, function (gas, err) {
             if (err) {
-                Toast.fail("Unknow Gas Limit")
+                const e = typeof err =="string"?err:err.message;
+                Toast.fail(e)
+            } else {
+                let gasNum = new BigNumber(gas);
+                executeData["gas"] = "0x" + new BigNumber(gasNum.multipliedBy(1.1).toFixed(0)).toString(16);
+                console.log("executeData", executeData);
+
+                seropp.executeContract(executeData, function (res) {
+                    if (callback) {
+                        callback(res)
+                    }
+                })
+            }
+        });
+    }
+
+    callMethodV2(_method, from, _args, callback) {
+        let packData = contractV2.packData(_method, _args);
+        let callParams = {
+            from: from,
+            to: contractV2.address,
+            data: packData
+        }
+
+        seropp.call(callParams, function (callData) {
+            if (callData !== "0x") {
+                let res = contractV2.unPackData(_method, callData);
+                if (callback) {
+                    callback(res);
+                }
+            } else {
+                callback("0x0");
+            }
+        });
+    }
+
+
+    executeMethodV2(_method, from, mainPKr, args, value, callback) {
+        let packData = contractV2.packData(_method, args);
+        let executeData = {
+            from: from,
+            to: contractV2.address,
+            value: "0x" + value.toString(16),
+            data: packData,
+            gasPrice: "0x" + new BigNumber("1000000000").toString(16),
+            cy: "SERO",
+        };
+        let estimateParam = {
+            from: mainPKr,
+            to: contractV2.address,
+            value: "0x" + value.toString(16),
+            data: packData,
+            gasPrice: "0x" + new BigNumber("1000000000").toString(16),
+            cy: "SERO",
+        }
+        seropp.estimateGas(estimateParam, function (gas, err) {
+            if (err) {
+                const e = typeof err =="string"?err:err.message;
+                Toast.fail(e)
             } else {
                 let gasNum = new BigNumber(gas);
                 executeData["gas"] = "0x" + new BigNumber(gasNum.multipliedBy(1.1).toFixed(0)).toString(16);
