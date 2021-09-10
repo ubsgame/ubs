@@ -67,11 +67,23 @@ class Ubs extends Component {
         abi.OnInit
             .then(() => {
                 abi.accountList(function (accounts) {
-                    self.setState({account: accounts[0]});
-                    self.initAccount(accounts[0].mainPKr);
-                    self.timer = setInterval(function () {
-                        self.initAccount(self.state.account.mainPKr);
-                    }, 10 * 1000);
+                    if(accounts && accounts.length>0){
+                        let account = accounts[0];
+                        let mainPkr = localStorage.getItem("mainPKr");
+                        if(mainPkr){
+                            for(let act of accounts){
+                                if(act.mainPKr === mainPkr){
+                                    account = act;
+                                    break;
+                                }
+                            }
+                        }
+                        self.setState({account: account});
+                        self.initAccount(account.mainPKr);
+                        self.timer = setInterval(function () {
+                            self.initAccount(self.state.account.mainPKr);
+                        }, 10 * 1000);
+                    }
                 });
             }).catch(() => {
             alert("init failed")
@@ -227,7 +239,9 @@ class Ubs extends Component {
                     {
                         text: <span>{showPK(account.name, account.pk, 10)}</span>, onPress: () => {
                             self.setState({account: account});
-                            self.initAccount(account.mainPKr);
+                            localStorage.setItem("mainPKr",account.mainPKr)
+                            // self.initAccount(account.mainPKr);
+                            window.location.reload();
                         }
                     }
                 );
