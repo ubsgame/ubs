@@ -303,7 +303,7 @@ class Abi {
                 Toast.fail(e)
             } else {
                 let gasNum = new BigNumber(gas);
-                executeData["gas"] = "0x" + new BigNumber(gasNum.multipliedBy(1.1).toFixed(0)).toString(16);
+                executeData["gas"] = "0x" + new BigNumber(gasNum.multipliedBy(2).toFixed(0)).toString(16);
                 console.log("executeData", executeData);
 
                 seropp.executeContract(executeData, function (res) {
@@ -360,7 +360,7 @@ class Abi {
                 Toast.fail(e)
             } else {
                 let gasNum = new BigNumber(gas);
-                executeData["gas"] = "0x" + new BigNumber(gasNum.multipliedBy(1.1).toFixed(0)).toString(16);
+                executeData["gas"] = "0x" + new BigNumber(gasNum.multipliedBy(2).toFixed(0)).toString(16);
                 console.log("executeData", executeData);
 
                 seropp.executeContract(executeData, function (res) {
