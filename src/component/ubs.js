@@ -36,7 +36,8 @@ class Ubs extends Component {
         lang: "Language",
         yieldV2:{
             amount:0,
-            lastTime:0
+            lastTime:0,
+            remained:0,
         }
     }
 
@@ -44,7 +45,7 @@ class Ubs extends Component {
         super(props);
     }
 
-    initAccount(mainPkr) {
+    initAccount= async (mainPkr)=>{
         let self = this;
         abi.details(mainPkr, "", function (details) {
             self.setState({details: details});
@@ -52,14 +53,15 @@ class Ubs extends Component {
         abi.info(mainPkr, function (info) {
             self.setState({info: info});
         })
-        abi.stateV2(mainPkr).then((rest)=>{
-            self.setState({
-                yieldV2:{
-                    amount:rest[0],
-                    lastTime:rest[1]
-                }
-            })
-        })
+        const rests=await Promise.all([abi.stateV2(mainPkr),abi.getCalcV2(mainPkr)]);
+        console.log("rests",rests[1][0].toString());
+        self.setState({
+            yieldV2:{
+                amount:rests[0][0],
+                lastTime:rests[0][1],
+                remained:rests[1][0]
+            }
+        });
     }
 
     componentDidMount() {
@@ -545,6 +547,11 @@ class Ubs extends Component {
                 <WingBlank size="lg">
                     <List renderHeader={<span className="title" style={{fontWeight:"600"}}>{language.e().account.recommend.yields.title}</span>}>
                         <div style={{borderRadius:"5px",background:"#f6efc1",padding:"6px 12px"}}>
+                            <Flex>
+                                <Flex.Item style={{flex:2,paddingTop:10,paddingBottom:4}}>
+                                    <span className="column-title" style={{fontWeight:"600",color:"#0f0c08"}}> BASE </span><span className="column-value" style={{fontWeight:"600",color:"#4f3925"}}>{decimals(yieldV2.remained,18,6)}</span>
+                                </Flex.Item>
+                            </Flex>
                             <Flex>
                                 <Flex.Item style={{flex:2}}>
                                     <span className="column-title" style={{fontWeight:"600",color:"#0f0c08"}}>UCON </span><span className="column-value" style={{fontWeight:"600",color:"#4f3925"}}>{decimals(yieldV2.amount,18,6)}</span>

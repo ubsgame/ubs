@@ -179,6 +179,14 @@ class Abi {
         })
     }
 
+    getCalcV2 = async (mainPKr)=>{
+        return new Promise((resolve, reject) => {
+            this.callMethodV2("getCalc",mainPKr,[mainPKr],function (rest){
+                resolve(rest)
+            })
+        })
+    }
+
     withdrawV2 = async (pk,mainPKr)=>{
         return new Promise((resolve, reject) => {
             this.executeMethodV2('withdraw', pk, mainPKr, [], 0, function (res){
