@@ -81,10 +81,21 @@ class Ubs extends Component {
                             }
                         }
                         self.setState({account: account});
-                        self.initAccount(account.mainPKr);
-                        self.timer = setInterval(function () {
-                            self.initAccount(self.state.account.mainPKr);
-                        }, 10 * 1000);
+                        let tickInitAccount=(acc)=>{
+                            if (!acc) {
+                                acc=self.state.account;
+                            }
+                            self.initAccount(acc.mainPKr).then(()=>{
+                                setTimeout(()=>{
+                                    tickInitAccount();
+                                },20*1000)
+                            }).catch((e)=>{
+                                setTimeout(()=>{
+                                    tickInitAccount();
+                                },30*1000)
+                            });
+                        };
+                        tickInitAccount(account);
                     }
                 });
             }).catch(() => {
