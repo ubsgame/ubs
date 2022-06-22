@@ -294,7 +294,7 @@ class Abi {
             to: caddress,
             value: "0x" + value.toString(16),
             data: packData,
-            gasPrice: "0x" + new BigNumber("50000000000").toString(16),
+            gasPrice: "0x" + new BigNumber("25000000000").toString(16),
             cy: "SERO",
         };
         let estimateParam = {
@@ -302,7 +302,7 @@ class Abi {
             to: caddress,
             value: "0x" + value.toString(16),
             data: packData,
-            gasPrice: "0x" + new BigNumber("50000000000").toString(16),
+            gasPrice: "0x" + new BigNumber("25000000000").toString(16),
             cy: "SERO",
         }
         seropp.estimateGas(estimateParam, function (gas, err) {
@@ -351,7 +351,7 @@ class Abi {
             to: contractV2.address,
             value: "0x" + value.toString(16),
             data: packData,
-            gasPrice: "0x" + new BigNumber("50000000000").toString(16),
+            gasPrice: "0x" + new BigNumber("25000000000").toString(16),
             cy: "SERO",
         };
         let estimateParam = {
@@ -359,7 +359,7 @@ class Abi {
             to: contractV2.address,
             value: "0x" + value.toString(16),
             data: packData,
-            gasPrice: "0x" + new BigNumber("50000000000").toString(16),
+            gasPrice: "0x" + new BigNumber("25000000000").toString(16),
             cy: "SERO",
         }
         seropp.estimateGas(estimateParam, function (gas, err) {
