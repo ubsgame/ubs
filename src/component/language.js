@@ -93,18 +93,7 @@ class Language {
             }
         },
         v2alert:`
-It is a great honor to be with you for more than 2 years in the development of UBS. At this moment, we are very excited to share with you
-
-- From the UBS ecological development route, a new and independent UBS V2 version is about to be launched. V2 will form a perfect DeFi ecological closed loop with V1.
-
-- V2 includes a variety of innovative DeFi technologies, such as mixed tokens that can unify power, bonus pool reward empowerment, and U medal NFT, etc.
-
-- V2 is already in the inner testing stage and is expected to be officially launched in July 2022. The current UBS will be defined as the UBS V1 version When V2 is launched, and the [V1] [V2] version switch button will be added to this interface.
-
-Hope all U fans are happy to mine and have a good day!
-
-For more details about V2, please visit our Medium
-https://medium.com/@YouCoin/the-innovative-and-upgraded-ubank-v2-bd49c4268e47
+UBS V2 has been officially launched, please enter through the V2 link!
 `,
         rule: `
 UBS Bank Contract Rules
@@ -207,18 +196,7 @@ Make life better`,
             }
         },
         v2alert:`
-非常荣幸与您在UBS生态发展中，一起经历了2年余时间，此刻，我们非常激动与您分享：
-
-- 由UBS生态发展路线，现即将创新推出UBS V2版本，V2将与V1形成完美的DeFi生态闭环
-
-- V2包括了多样化的创新DeFi技术，如混合币种统一算力、分红池赋能、U荣誉勋章NFT等
-
-- UBS V2现已处于内测阶段，预计将于2022年7月正式推出。当V2推出后，现UBS将定义为UBS V1版本，将于本界面增加【V1】【V2】版本切换按键
-
-祝所有U粉们愉快挖矿，享受美好一天！
-
-关于V2更多详细内容，请进入我们的Medium查阅
-https://medium.com/@YouCoin/the-innovative-and-upgraded-ubank-v2-bd49c4268e47
+UBS V2已正式推出，请通过V2链接直接进入！
 `,
         rule: `
 UBS银行合约规则
@@ -332,18 +310,7 @@ UBS银行合约规则
             }
         },
         v2alert:`
-It is a great honor to be with you for more than 2 years in the development of UBS. At this moment, we are very excited to share with you
-
-- From the UBS ecological development route, a new and independent UBS V2 version is about to be launched. V2 will form a perfect DeFi ecological closed loop with V1.
-
-- V2 includes a variety of innovative DeFi technologies, such as mixed tokens that can unify power, bonus pool reward empowerment, and U medal NFT, etc.
-
-- V2 is already in the inner testing stage and is expected to be officially launched in July 2022. The current UBS will be defined as the UBS V1 version When V2 is launched, and the [V1] [V2] version switch button will be added to this interface.
-
-Hope all U fans are happy to mine and have a good day!
-
-For more details about V2, please visit our Medium
-https://medium.com/@YouCoin/the-innovative-and-upgraded-ubank-v2-bd49c4268e47
+UBS V2 has been officially launched, please enter through the V2 link!
 `,
         rule: `
 UBS銀行契約ルール
@@ -463,18 +430,7 @@ UBS銀行契約ルール
             }
         },
         v2alert:`
-It is a great honor to be with you for more than 2 years in the development of UBS. At this moment, we are very excited to share with you
-
-- From the UBS ecological development route, a new and independent UBS V2 version is about to be launched. V2 will form a perfect DeFi ecological closed loop with V1.
-
-- V2 includes a variety of innovative DeFi technologies, such as mixed tokens that can unify power, bonus pool reward empowerment, and U medal NFT, etc.
-
-- V2 is already in the inner testing stage and is expected to be officially launched in July 2022. The current UBS will be defined as the UBS V1 version When V2 is launched, and the [V1] [V2] version switch button will be added to this interface.
-
-Hope all U fans are happy to mine and have a good day!
-
-For more details about V2, please visit our Medium
-https://medium.com/@YouCoin/the-innovative-and-upgraded-ubank-v2-bd49c4268e47
+UBS V2 has been officially launched, please enter through the V2 link!
 `,
         rule: `
 Правила банковского контракта UBS
@@ -592,18 +548,7 @@ https://medium.com/@YouCoin/the-innovative-and-upgraded-ubank-v2-bd49c4268e47
             }
         },
         v2alert:`
-It is a great honor to be with you for more than 2 years in the development of UBS. At this moment, we are very excited to share with you
-
-- From the UBS ecological development route, a new and independent UBS V2 version is about to be launched. V2 will form a perfect DeFi ecological closed loop with V1.
-
-- V2 includes a variety of innovative DeFi technologies, such as mixed tokens that can unify power, bonus pool reward empowerment, and U medal NFT, etc.
-
-- V2 is already in the inner testing stage and is expected to be officially launched in July 2022. The current UBS will be defined as the UBS V1 version When V2 is launched, and the [V1] [V2] version switch button will be added to this interface.
-
-Hope all U fans are happy to mine and have a good day!
-
-For more details about V2, please visit our Medium
-https://medium.com/@YouCoin/the-innovative-and-upgraded-ubank-v2-bd49c4268e47
+UBS V2 has been officially launched, please enter through the V2 link!
 `,
         rule: `
 UBS 은행 계약 규정
