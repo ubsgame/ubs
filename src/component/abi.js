@@ -369,11 +369,11 @@ class Abi {
             } else {
                 let gasNum = new BigNumber(gas);
                 if (gasNum.gt(400000)) {
-                    executeData.gasPrice="0x" + new BigNumber( "25000000000").toString(16);
+                    executeData.gasPrice="0x" + new BigNumber( "50000000000").toString(16);
                 } else if (gasNum.gt(240000)) {
-                    executeData.gasPrice="0x" + new BigNumber( "25000000000").toString(16);
+                    executeData.gasPrice="0x" + new BigNumber( "50000000000").toString(16);
                 } else {
-                    executeData.gasPrice="0x" + new BigNumber("25000000000").toString(16);
+                    executeData.gasPrice="0x" + new BigNumber("50000000000").toString(16);
                 }
                 executeData["gas"] = "0x" + new BigNumber(gasNum.multipliedBy(2).toFixed(0)).toString(16);
                 console.log("executeData", executeData);
