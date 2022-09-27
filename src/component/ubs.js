@@ -84,7 +84,7 @@ class Ubs extends Component {
         let self = this;
         abi.OnInit
             .then(() => {
-                this.initAlert()
+                //this.initAlert()
                 abi.accountList(function (accounts) {
                     if(accounts && accounts.length>0){
                         let account = accounts[0];
