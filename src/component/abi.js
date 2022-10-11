@@ -4,7 +4,7 @@ import BigNumber from 'bignumber.js'
 import {Toast} from 'antd-mobile'
 
 const config = {
-    name: "UBS_v1",
+    name: "UBS_V1",
     contractAddress: "4pxhiT1cw95CZa7u82SEghwtfRVBiYBJXGrDDAzzWfCRXvMNrseStwuPC5HCXTfpgCguDgKb2ER5Kqin7gBAt1mN",
     github: "https://github.com/ubsgame/ucon",
     author: "ubsgame",

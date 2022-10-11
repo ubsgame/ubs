@@ -420,7 +420,7 @@ class Ubs extends Component {
                                         </span>
                     <span style={{float: "right", padding: "15px",}} >
                         <span style={{color: "#fe0"}}>V1 </span>|<span style={{color: "#fff"}} onClick={() => {
-                            window.location.href="https://upool.vercel.app/v2"
+                            window.location.href="https://youcoinmeta.github.io/upool/v2"
                         }}> V2</span><span> </span>
                          <span style={{color: "#fff"}} onClick={() => {
                              Modal.operation([
