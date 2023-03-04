@@ -27,6 +27,7 @@ class Language {
         warn: "Venture capital, cautious participation.",
         copySucc: "Copy success",
         copy: "Copy",
+        Migration:"Migration",
         Button: {
             Ok: "Ok",
             Cancel: "Cancel"
@@ -142,6 +143,7 @@ Make life better`,
         warn: "风险投资 谨慎参与",
         copySucc: "复制成功",
         copy: "复制",
+        Migration:"迁移",
         Button: {
             Ok: "确定",
             Cancel: "取消"
@@ -245,6 +247,7 @@ UBS银行合约规则
         warn: "ベンチャーキャピタル",
         copySucc: "コピー成功",
         copy: "コピー",
+        Migration:"Migration",
         Button: {
             Ok: "確認する",
             Cancel: "キャンセルする"
@@ -359,6 +362,7 @@ UBS銀行契約ルール
         warn: "Венчурный капитал",
         copySucc: "Копирование успешно",
         copy: "копия",
+        Migration:"Migration",
         Button: {
             Ok: "Подтверждение",
             Cancel: "отменен"
@@ -479,6 +483,7 @@ UBS V2 has been officially launched, please enter through the V2 link!
         warn: "벤처 캐피탈",
         copySucc: "복사 성공",
         copy: "복사",
+        Migration:"Migration",
         Button: {
             Ok: "확인",
             Cancel: "취소"

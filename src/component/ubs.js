@@ -418,7 +418,17 @@ class Ubs extends Component {
 
 
                                         </span>
-                    <span style={{float: "right", padding: "15px",}} >
+                    <span style={{align: "center", float: "right", padding: "15px",}} >
+                        <span
+                            style={{borderRadius:"4px", paddingLeft:"3px",paddingRight:"3px",paddingTop:"2px", textAlign:"center", background: "#a50000", color: "#ffffff", display: "inline-block", height:'18px'}}
+                            onClick={() => {
+                                window.location.href="https://youcoinmeta.github.io/migrate/"
+                            }}
+                        >
+                            {language.e().Migration}
+                        </span>
+                        <span> </span>
+                        <span> </span>
                         <span style={{color: "#fe0"}}>V1 </span>|<span style={{color: "#fff"}} onClick={() => {
                             window.location.href="https://youcoinmeta.github.io/upool/v2"
                         }}> V2</span><span> </span>
