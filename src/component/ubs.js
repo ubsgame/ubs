@@ -590,24 +590,24 @@ class Ubs extends Component {
                         <div style={{borderRadius:"5px",background:"#f6efc1",padding:"6px 12px"}}>
                             <Flex>
                                 <Flex.Item style={{flex:2,paddingTop:10,paddingBottom:4}}>
-                                    <span className="column-title" style={{fontWeight:"600",color:"#0f0c08"}}> {language.e().account.recommend.yields.base} </span><span className="column-value" style={{fontWeight:"600",color:"#4f3925"}}>{decimals(yieldV2.remained,18,6)}</span>
+                                    <span className="column-title" style={{fontWeight:"600",color:"#0f0c08"}}> {language.e().account.recommend.yields.base} </span><span className="column-value" style={{fontWeight:"600",color:"#4f3925"}}>{0.000000/*decimals(yieldV2.remained,18,6)*/}</span>
                                 </Flex.Item>
                             </Flex>
                             <Flex>
                                 <Flex.Item style={{flex:2}}>
-                                    <span className="column-title" style={{fontWeight:"600",color:"#0f0c08"}}>UCON </span><span className="column-value" style={{fontWeight:"600",color:"#4f3925"}}>{decimals(yieldV2.amount,18,6)}</span>
+                                    <span className="column-title" style={{fontWeight:"600",color:"#0f0c08"}}>UCON </span><span className="column-value" style={{fontWeight:"600",color:"#4f3925"}}>{0.000000/*decimals(yieldV2.amount,18,6)*/}</span>
                                 </Flex.Item>
                                 <Flex.Item style={{flex:1}}>
-                                    <Button disabled={new BigNumber(yieldV2.amount).toNumber() ===0
-                                    || Date.now()<expV2
+                                    <Button disabled={true/*new BigNumber(yieldV2.amount).toNumber() ===0
+                                    || Date.now()<expV2*/
                                     } onClick={()=>{
                                         abi.withdrawV2(this.state.account.pk,this.state.account.mainPKr).catch(e=>{
                                             const err = typeof e =="string"?e:e.message;
                                             Toast.fail(err)
                                         })
                                     }}>{
-                                        Date.now()<expV2 ?
-                                            <CountTimeDown endTime={expV2}/> : language.e().account.recommend.yields.harvest
+                                        /*Date.now()<expV2 ?
+                                            <CountTimeDown endTime={expV2}/> : */language.e().account.recommend.yields.harvest
                                     }</Button>
                                 </Flex.Item>
                             </Flex>
