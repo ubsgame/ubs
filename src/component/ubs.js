@@ -69,7 +69,7 @@ class Ubs extends Component {
             <span>{language.e().account.v2alert}</span>,
             <div
                 className="contractRule"
-                style={{height: '20vh'}}
+                style={{height: '42vh'}}
             >
                 <pre style={{'whiteSpace': 'pre-wrap'}}>{language.e().v2alert}</pre>
                 <br/>
@@ -84,7 +84,7 @@ class Ubs extends Component {
         let self = this;
         abi.OnInit
             .then(() => {
-                //this.initAlert()
+                this.initAlert()
                 abi.accountList(function (accounts) {
                     if(accounts && accounts.length>0){
                         let account = accounts[0];
@@ -116,6 +116,7 @@ class Ubs extends Component {
                     }
                 });
             }).catch(() => {
+            this.initAlert()
             alert("init failed")
         });
 

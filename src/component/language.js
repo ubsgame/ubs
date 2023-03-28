@@ -55,7 +55,7 @@ class Language {
             returnValue: " Total Fixed Income ",
             totalAynamicReward: " Total Referral Income",
             rule: "Contract Rule",
-            v2alert: "UBS V2 ANNOUNCEMENT",
+            v2alert: "Important Announcement",
 
             modal: {
                 title: "Invest",
@@ -94,7 +94,17 @@ class Language {
             }
         },
         v2alert:`
-UBS V2 has been officially launched, please enter through the V2 link!
+To all YouCoiners,
+
+The new YouCoin dApp has been successfully launched on BNB chain, SERO chain users can click the MIGRATE button in this interface to bind the BNB chain migration address, you can migrate your current account data 1:1 to your BNB chain account. Remind that you can't continue to get ecological earnings until you migrate. Now migrate and bind as soon as possible! After successful binding, you can access the YouCoin dApp of BNB Chain using all major crypto wallets that support EVM!
+
+YouCoin dApp:
+https://dapp.youcoinmeta.com
+
+You can also find more details here.
+https://medium.com/@YouCoin/2301-phoenix-hard-fork-migration-proposal-951ceb3131a6
+
+https://medium.com/@YouCoin/progress-update-on-the-2301-phoenix-proposal-1621a2c46734
 `,
         rule: `
 UBS Bank Contract Rules
@@ -169,7 +179,7 @@ Make life better`,
             value: "静态收益额度",
             returnValue: "累计静态收益",
             totalAynamicReward: "累计分享收益",
-            v2alert: "UBS V2公告",
+            v2alert: "重要公告",
             rule: "合约规则",
             modal: {
                 title: "投资",
@@ -198,7 +208,17 @@ Make life better`,
             }
         },
         v2alert:`
-UBS V2已正式推出，请通过V2链接直接进入！
+致所有YouCoin用户：
+
+全新YouCoin dApp已于BNB链成功发射！SERO链用户请点击本界面的迁移按键，进行绑定BNB链迁移地址，即可将当前账户数据1:1迁移至BNB链您的账户。提醒您未迁移之前无法继续获得生态收益，请尽快迁移绑定！绑定成功后，即可使用支持EVM的所有主流加密钱包进入BNB链YouCoin dApp！
+
+YouCoin dApp: 
+https://dapp.youcoinmeta.com
+
+您也可以在这里找到更多详细内容
+https://medium.com/@YouCoin/2301-phoenix-hard-fork-migration-proposal-951ceb3131a6
+
+https://medium.com/@YouCoin/progress-update-on-the-2301-phoenix-proposal-1621a2c46734
 `,
         rule: `
 UBS银行合约规则
@@ -274,7 +294,7 @@ UBS银行合约规则
             value: "固定収入限界",
             returnValue: "累積固定収入",
             totalAynamicReward: " 累積紹介収入",
-            v2alert: "UBS V2 ANNOUNCEMENT",
+            v2alert: "Important Announcement",
             rule: "契約ルール",
 
             modal: {
@@ -313,7 +333,17 @@ UBS银行合约规则
             }
         },
         v2alert:`
-UBS V2 has been officially launched, please enter through the V2 link!
+To all YouCoiners,
+
+The new YouCoin dApp has been successfully launched on BNB chain, SERO chain users can click the MIGRATE button in this interface to bind the BNB chain migration address, you can migrate your current account data 1:1 to your BNB chain account. Remind that you can't continue to get ecological earnings until you migrate. Now migrate and bind as soon as possible! After successful binding, you can access the YouCoin dApp of BNB Chain using all major crypto wallets that support EVM!
+
+YouCoin dApp:
+https://dapp.youcoinmeta.com
+
+You can also find more details here.
+https://medium.com/@YouCoin/2301-phoenix-hard-fork-migration-proposal-951ceb3131a6
+
+https://medium.com/@YouCoin/progress-update-on-the-2301-phoenix-proposal-1621a2c46734
 `,
         rule: `
 UBS銀行契約ルール
@@ -390,7 +420,7 @@ UBS銀行契約ルール
             value: " Фиксированный лимит дохода ",
             returnValue: " Общий фиксированный доход ",
             totalAynamicReward: " Общий доход рефералов ",
-            v2alert: "UBS V2 ANNOUNCEMENT",
+            v2alert: "Important Announcement",
             rule: "Правило договора",
             game: {
                 title: "Фонд защиты [Старт]",
@@ -434,7 +464,17 @@ UBS銀行契約ルール
             }
         },
         v2alert:`
-UBS V2 has been officially launched, please enter through the V2 link!
+To all YouCoiners,
+
+The new YouCoin dApp has been successfully launched on BNB chain, SERO chain users can click the MIGRATE button in this interface to bind the BNB chain migration address, you can migrate your current account data 1:1 to your BNB chain account. Remind that you can't continue to get ecological earnings until you migrate. Now migrate and bind as soon as possible! After successful binding, you can access the YouCoin dApp of BNB Chain using all major crypto wallets that support EVM!
+
+YouCoin dApp:
+https://dapp.youcoinmeta.com
+
+You can also find more details here.
+https://medium.com/@YouCoin/2301-phoenix-hard-fork-migration-proposal-951ceb3131a6
+
+https://medium.com/@YouCoin/progress-update-on-the-2301-phoenix-proposal-1621a2c46734
 `,
         rule: `
 Правила банковского контракта UBS
@@ -510,7 +550,7 @@ UBS V2 has been officially launched, please enter through the V2 link!
             value: "고정 수입 한도",
             returnValue: "누적 고정 수입",
             totalAynamicReward: " 누적 추천 소득",
-            v2alert: "UBS V2 ANNOUNCEMENT",
+            v2alert: "Important Announcement",
             rule: "계약 규칙",
             game: {
                 title: "보호 기금 [시작]",
@@ -553,7 +593,17 @@ UBS V2 has been officially launched, please enter through the V2 link!
             }
         },
         v2alert:`
-UBS V2 has been officially launched, please enter through the V2 link!
+To all YouCoiners,
+
+The new YouCoin dApp has been successfully launched on BNB chain, SERO chain users can click the MIGRATE button in this interface to bind the BNB chain migration address, you can migrate your current account data 1:1 to your BNB chain account. Remind that you can't continue to get ecological earnings until you migrate. Now migrate and bind as soon as possible! After successful binding, you can access the YouCoin dApp of BNB Chain using all major crypto wallets that support EVM!
+
+YouCoin dApp:
+https://dapp.youcoinmeta.com
+
+You can also find more details here.
+https://medium.com/@YouCoin/2301-phoenix-hard-fork-migration-proposal-951ceb3131a6
+
+https://medium.com/@YouCoin/progress-update-on-the-2301-phoenix-proposal-1621a2c46734
 `,
         rule: `
 UBS 은행 계약 규정
