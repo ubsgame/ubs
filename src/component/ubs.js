@@ -391,7 +391,8 @@ class Ubs extends Component {
             <div style={{maxWidth: '600px', backgroundColor: '#080810'}}>
                 <div style={{position: "absolute", top: "0", width: "100%", maxWidth: "600px"}}>
                                         <span style={{float: "left", padding: "15px"}} onClick={() => {
-                                            Modal.alert(
+                                            this.initAlert()
+                                            /*Modal.alert(
                                                 <span>{language.e().account.rule}</span>,
                                                 <div
                                                     className="contractRule"
@@ -411,10 +412,10 @@ class Ubs extends Component {
                                                     <br/>
                                                 </div>,
                                                 [
-                                                    {text: <span>OK</span>}])
+                                                    {text: <span>OK</span>}])*/
                                         }}>
                                             <span style={{color: "#fff"}}>
-                                                {language.e().account.rule}
+                                                {language.e().account./*rule*/v2alert}
                                             </span>
 
 
@@ -616,53 +617,8 @@ class Ubs extends Component {
                     </List>
                 </WingBlank>
 
-                <WingBlank size="lg">
-                    <List renderHeader={<span className="title">{language.e().account.recommend.title}</span>}>
-                        <div className="item-header" style={{borderRadius: '5px 5px 0 0'}}>
-                            <div>
-                                <div><span
-                                    className="column-title">{language.e().account.recommend.invitationCode}: </span>
-                                    <span className="column-value">{this.state.details.selfCode}</span>
-                                    &nbsp;&nbsp;&nbsp;
-                                    {this.state.details.selfCode !== "" &&
-                                    <span onClick={() => {
-                                        copy(this.state.details.selfCode);
-                                        Toast.success(language.e().copySucc, 1);
-                                    }
-                                    }>{language.e().copy}</span>
-                                    }
-
-                                </div>
-                            </div>
-                        </div>
-                        <List.Item>
-                            <div>
-                                <div style={{float: 'left'}}>
-                                    <span className="column-title">{language.e().account.recommend.achievement}: </span>
-                                    <span
-                                        className="column-title">{decimals(self.state.details.values[0], 18, 9)} SERO</span>
-                                </div>
-                            </div>
-                        </List.Item>
-
-                        <div className="item-header"
-                             style={{borderRadius: (self.state.details.values.length === 0) ? '0 0 5px 5px' : ''}}>
-                            <div style={{float: "left", width: '25%', textAlign: 'center'}}><span
-                                className="column-title">{language.e().account.recommend.level}</span></div>
-                            <div style={{float: "left", width: '50%', textAlign: 'center'}}><span
-                                className="column-title">{language.e().account.recommend.achieveDetail}</span></div>
-                            {/*<div style={{float: "left", width: '25%', textAlign: 'center'}}><span
-                                className="column-title">{language.e().account.recommend.profit}</span></div>*/}
-                            <div style={{float: "left", width: '25%', textAlign: 'center'}}><span
-                                className="column-title">{language.e().account.recommend.state}</span></div>
-                        </div>
-                        {items}
-
-
-                    </List>
-                </WingBlank>
                 <div className="footer">
-                    <p>{language.e().warn}</p>
+                    <p>{/*language.e().warn*/"   "}</p>
                 </div>
             </div>
         )
